@@ -1,0 +1,119 @@
+# JIRA COMMANDS AND JQL QUERIES
+
+1. BASIC JQL QUERIES
+
+---
+
+project = DEV
+status = "To Do"
+status = "In Progress"
+status = Done
+priority = High
+priority = Highest
+issuetype = Bug
+issuetype = Task
+issuetype = Story
+
+2. USER QUERIES
+
+---
+
+assignee = currentUser()
+reporter = currentUser()
+assignee IS EMPTY
+reporter IS EMPTY
+
+3. STATUS QUERIES
+
+---
+
+status = "To Do"
+status = "In Progress"
+status = "In Review"
+status = Testing
+status = Done
+status != Done
+
+4. BUG TRACKING
+
+---
+
+issuetype = Bug
+issuetype = Bug AND status != Done
+issuetype = Bug AND priority = High
+issuetype = Bug AND assignee IS EMPTY
+
+5. PROJECT QUERIES
+
+---
+
+project = DEV
+project = DEV AND status = Done
+project = DEV AND priority = High
+project = DEV AND issuetype = Bug
+
+6. DATE QUERIES
+
+---
+
+created >= -7d
+created >= -30d
+updated >= -1d
+updated >= -7d
+due <= endOfDay()
+created >= startOfDay()
+
+7. SPRINT QUERIES
+
+---
+
+sprint = 12
+sprint in openSprints()
+sprint in futureSprints()
+sprint in closedSprints()
+
+8. ADVANCED QUERIES
+
+---
+
+project = DEV AND status = "In Progress"
+project = DEV AND assignee = currentUser()
+project = DEV AND issuetype = Bug AND status != Done
+priority = High ORDER BY created DESC
+status = Done ORDER BY updated DESC
+assignee IS EMPTY ORDER BY priority DESC
+resolution IS EMPTY
+
+9. SORTING QUERIES
+
+---
+
+ORDER BY created DESC
+ORDER BY updated DESC
+ORDER BY priority DESC
+ORDER BY duedate ASC
+ORDER BY status ASC
+
+10. USEFUL FUNCTIONS
+
+---
+
+currentUser()
+now()
+startOfDay()
+endOfDay()
+openSprints()
+closedSprints()
+futureSprints()
+
+## IMPORTANT:
+
+DEV = Replace with your actual Project Key.
+12 = Replace with your actual Sprint ID.
+
+JQL is used inside Jira Issue Search.
+These are search queries, not terminal commands.
+
+Author: Yash Pawar
+Cloud & DevOps Engineer
+GitHub: CodewithYash77
